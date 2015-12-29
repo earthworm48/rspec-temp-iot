@@ -9,28 +9,25 @@ RSpec.describe Device, type: :model do
 	context "column list - " do
 		context "has the cloumn: " do
 			it "name" do
-				expect(device.name).not_to raise_error
+				expect{device.name}.not_to raise_error
 			end
 
 			it "address" do
-				expect(device.address).not_to raise_error
+				expect{device.address}.not_to raise_error
 			end
 
 			it "user_id" do
-				expect(device.user_id).not_to raise_error
+				expect{device.user_id}.not_to raise_error
 			end
 		end
 	end
 
 	context "handling input - " do
-		let(:faulty_names_type)					{ [ 1234,
-																				true,
-																				["Front Door"]
-																			]
-																		}
+
 		let(:too_long_name)							{ "You must be Jokingly Long String" }
 		let(:too_short_name)						{ "abc" }
 		let(:miniumn_name)							{ "Jane" }
+		let(:faulty_names_type)						{ [ 1234,true,["Front Door"]]}
 
 		let(:faulty_addresses_type)			{ [ "AABB:CC:DD:EE:FF",
 																				"AA:BBCC:DD:EE:FF",
